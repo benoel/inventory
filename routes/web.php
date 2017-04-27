@@ -67,6 +67,7 @@ Route::get('/barangmasuk/create', 'ProductInController@create');
 Route::post('/barangmasuk', 'ProductInController@store');
 //barang masuk detail
 Route::get('/transaksi-in/{number}', 'ProductInDetailController@create');
+Route::get('/transaksi-in/{number}/delete', 'ProductInController@delete');
 Route::get('/transaksimasuk/{number}', 'ProductInDetailController@getdata');
 Route::post('/transaksimasuk/add', 'ProductInDetailController@add');
 Route::get('/transaksimasuk/{id}/delete', 'ProductInDetailController@delete');
@@ -79,6 +80,7 @@ Route::get('/barangkeluar/create', 'ProductOutController@create');
 Route::post('/barangkeluar', 'ProductOutController@store');
 //barang keluar detail
 Route::get('/transaksi-out/{number}', 'ProductOutDetailController@create');
+Route::get('/transaksi-out/{number}/delete', 'ProductOutController@delete');
 Route::get('/transaksikeluar/{number}', 'ProductOutDetailController@getdata');
 Route::post('/transaksikeluar/add', 'ProductOutDetailController@add');
 Route::get('/transaksikeluar/{id}/delete', 'ProductOutDetailController@delete');
@@ -108,17 +110,20 @@ Route::get('/printtransaksimasuk/{number}', 'ProductInController@previewtransaks
 
 // laporan
 Route::get('/reportbarangmasuk', function(){
-	return view('report.reportproductin');
+	$tree = '<span class="glyphicon glyphicon-menu-right"></span> Laporan <span class="glyphicon glyphicon-menu-right"></span> Barang Masuk';
+	return view('report.reportproductin', compact('tree'));
 });
 Route::post('/reportbarangmasuk', 'ProductInController@report');
 
 Route::get('/reportbarangkeluar', function(){
-	return view('report.reportproductout');
+	$tree = '<span class="glyphicon glyphicon-menu-right"></span> Laporan <span class="glyphicon glyphicon-menu-right"></span> Barang Keluar';
+	return view('report.reportproductout', compact('tree'));
 });
 Route::post('/reportbarangkeluar', 'ProductOutController@report');
 
 Route::get('/reportbarangrusak', function(){
-	return view('report.reportproductcrash');
+	$tree = '<span class="glyphicon glyphicon-menu-right"></span> Laporan <span class="glyphicon glyphicon-menu-right"></span> Barang Rusak';
+	return view('report.reportproductcrash', compact('tree'));
 });
 Route::post('/reportbarangrusak', 'ProductReturController@report');
 

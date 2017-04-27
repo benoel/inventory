@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ url('kategori/create') }}" class="btn btn-default">Tambah Kategori</a>
+<a href="{{ url('kategori/create') }}" class="btn roman white-txt">Tambah Kategori</a>
 
 <table id="inventoryTable" class="display">
 	<thead>
@@ -20,8 +20,8 @@
 			<td>{{ $no++ }}</td>
 			<td>{{ $data->name }}</td>
 			<td>
-				<a class="mycolor" href="{{ url('kategori/'. $data->id .'/edit') }}">Edit</a> || 
-				<a class="mycolor" href="{{ url('kategori/'. $data->id .'/delete') }}">Delete</a>
+				<a class="roman-txt" href="{{ url('kategori/'. $data->id .'/edit') }}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> || 
+				<a class="roman-txt" href="{{ url('kategori/'. $data->id .'/delete') }}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
 			</td>
 		</tr>
 		@endforeach

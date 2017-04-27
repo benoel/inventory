@@ -47,7 +47,8 @@ class ProductReturController extends Controller
 	function create(){
 		$dataoutlet = Outlet::all(); 
 		$nomor = $this->transaksi_id(); 
-		return view('transaction.transaction_retur.transactionretur', compact('dataoutlet', 'nomor'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span>Buat Transaksi Barang Rusak';
+		return view('transaction.transaction_retur.transactionretur', compact('dataoutlet', 'nomor', 'tree'));
 	}
 
 	function store(Request $request){
@@ -61,12 +62,14 @@ class ProductReturController extends Controller
 
 	function index(){
 		$data = ProductRetur::all();
-		return view('transaction.transaction_retur.view', compact('data'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Barang Rusak';
+		return view('transaction.transaction_retur.view', compact('data', 'tree'));
 	}
 
 	function view(){
 		$dataproductcrash = ProductCrash::all();
-		return view('product_crash.view', compact('dataproductcrash'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Daftar Barang Rusak';
+		return view('product_crash.view', compact('dataproductcrash', 'tree'));
 	}
 
 	function previewtransaksi($number){

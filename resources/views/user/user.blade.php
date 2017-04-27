@@ -8,7 +8,7 @@
 		<img src="{{ asset($picture) }}" class="responsive-img" alt="">
 	</div>
 	<h1>Selamat {{ $feel }}, {{ $nama }}</h1>
-	<a href="{{ url('user/create') }}">Tambah User Baru</a>
+	<a class="roman-txt" href="{{ url('user/create') }}"><span class="glyphicon glyphicon-plus"></span> Tambah User Baru</a>
 </div>
 <br><br>
 <table class="table">

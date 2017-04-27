@@ -44,8 +44,9 @@ class ProductOutController extends Controller
 
 	function create(){
 		$dataoutlet = Outlet::all(); 
-		$nomor = $this->transaksi_id(); 
-		return view('transaction.transaction_out.transactionout', compact('dataoutlet', 'nomor'));
+		$nomor = $this->transaksi_id();
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Buat Transaksi Keluar';
+		return view('transaction.transaction_out.transactionout', compact('dataoutlet', 'nomor', 'tree'));
 	}
 
 	function store(Request $request){
@@ -59,7 +60,8 @@ class ProductOutController extends Controller
 
 	function view(){
 		$data = ProductOut::all();
-		return view('transaction.transaction_out.view', compact('data'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Transaksi Keluar';
+		return view('transaction.transaction_out.view', compact('data', 'tree'));
 	}
 
 	function previewtransaksi($number){
@@ -83,6 +85,13 @@ class ProductOutController extends Controller
 			$to = $request->to;
 		}
 		// dd($datareport);
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Laporan <span class="glyphicon glyphicon-menu-right"></span> Barang Keluar <span class="glyphicon glyphicon-menu-right"></span> Result';
 		return view('report.result.resultout', compact('datareport', 'from', 'to'));
+	}
+
+	function delete($number){
+		ProductOut::where('number', $number)->delete();
+		ProductOutDetail::where('number', $number)->delete();
+		return redirect ('barangkeluar');
 	}
 }

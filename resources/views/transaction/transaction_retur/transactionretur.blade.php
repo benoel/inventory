@@ -21,7 +21,7 @@
 				<textarea name="note" class="form-control" id="" cols="30" rows="6"></textarea>
 			</div>
 			<br>
-			<button type="submit" class="btn btn-primary">KONFIRMASI</button>
+			<button type="submit" class="btn roman white-txt">KONFIRMASI</button>
 		</form>
 	</div>
 </div>

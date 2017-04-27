@@ -47,7 +47,7 @@
 		</div>
 		<div class="col-md-4 col-md-offset-4 center">
 			<br>
-			<button type="submit" class="btn btn-default center">SIMPAN</button>
+			<button type="submit" class="btn roman white-txt center">SIMPAN</button>
 		</div>
 	</div>
 </form>

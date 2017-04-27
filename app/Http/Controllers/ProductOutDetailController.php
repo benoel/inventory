@@ -24,7 +24,8 @@ class ProductOutDetailController extends Controller
 			$dtstatus = 'disabled';
 			// $dtstatus = '';
 		}
-		return view('transaction.transaction_out.transactionOutDetail', compact('datadetail', 'dtstatus', 'dataproduct'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Detail Transaksi Keluar';
+		return view('transaction.transaction_out.transactionOutDetail', compact('datadetail', 'dtstatus', 'dataproduct', 'tree'));
 	}
 
 	function getdata($number){

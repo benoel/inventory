@@ -18,13 +18,15 @@ class ProductController extends Controller
 
 	function view(){
 		$dataproduct = Product::all();
-		return view('product.view', compact('dataproduct'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Barang';
+		return view('product.view', compact('dataproduct', 'tree'));
 	}
 
 	function create(){
 		$category = Category::all();
 		$unit = Unit::all();
-		return view('product.create', compact('category', 'unit'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Barang <span class="glyphicon glyphicon-menu-right"></span> Tambah Barang';
+		return view('product.create', compact('category', 'unit', 'tree'));
 	}
 
 	function store(Request $request){
@@ -42,7 +44,8 @@ class ProductController extends Controller
 		$data = Product::find($id);
 		$category = Category::all();
 		$unit = Unit::all();
-		return view('product.edit', compact('data', 'unit', 'category'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Barang <span class="glyphicon glyphicon-menu-right"></span> Edit Barang';
+		return view('product.edit', compact('data', 'unit', 'category', 'tree'));
 	}
 
 	function update(Request $request, $id){

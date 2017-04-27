@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ url('barangkeluar/create') }}" class="btn btn-default">Buat Transaksi Barang Keluar</a>
+<a href="{{ url('barangkeluar/create') }}" class="btn roman white-txt">Buat Transaksi Barang Keluar</a>
 
 <table id="inventoryTable" class="display">
 	<thead>
@@ -26,8 +26,10 @@
 			<td>{{ $element->status }}</td>
 			<td>{{ $element->note }}</td>
 			<td>
-				<a class="mycolor" href="{{ url('transaksi-out/'. $element->number) }}">Lihat</a>
-				{{-- <a class="mycolor" href="{{ url('transaksi-out/'. $element->number.'/delete') }}">Hapus</a> --}}
+				<a class="roman-txt" href="{{ url('transaksi-out/'. $element->number) }}"><span class="glyphicon glyphicon-sort"></span> Lihat</a>
+				@if ($element->status == 'open')
+				|| <a class="roman-txt" href="{{ url('transaksi-out/'. $element->number.'/delete') }}"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
+				@endif
 			</td>
 		</tr>
 		@endforeach

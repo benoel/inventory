@@ -27,7 +27,8 @@ class ProductReturDetailController extends Controller
 			$dtstatus = 'disabled';
 			// $dtstatus = '';
 		}
-		return view('transaction.transaction_retur.transactionReturDetail', compact('datadetail', 'dtstatus', 'dataproduct'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span>Detail Transaksi Barang Rusak';
+		return view('transaction.transaction_retur.transactionReturDetail', compact('datadetail', 'dtstatus', 'dataproduct', 'tree'));
 	}
 
 	function getdata($number){

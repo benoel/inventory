@@ -30,13 +30,15 @@ class UserController extends Controller
 		}else{
 			$feel = "Malam";
 		}
-		return view('user.user', compact('feel', 'nama', 'picture', 'data'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Sistem Admin <span class="glyphicon glyphicon-menu-right"></span> User';
+		return view('user.user', compact('feel', 'nama', 'picture', 'data', 'tree'));
 	}
 
 	function profile(){
 		$picture = 'storage/images/'.Auth::user()->picture;
 		$user = Auth::user();
-		return view('user.profile', compact('user', 'picture'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Sistem Admin <span class="glyphicon glyphicon-menu-right"></span> User <span class="glyphicon glyphicon-menu-right"></span> Profile';
+		return view('user.profile', compact('user', 'picture', 'tree'));
 	}
 
 	function update_profile(Request $request){
@@ -63,7 +65,8 @@ class UserController extends Controller
 	}
 
 	function password(){
-		return view('user.password');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Sistem Admin <span class="glyphicon glyphicon-menu-right"></span> Password';
+		return view('user.password', compact('tree'));
 	}
 	function change_password(Request $request){
 		Validator::make($request->all() , [
@@ -81,7 +84,8 @@ class UserController extends Controller
 	}
 
 	function create(){
-		return view('user.create');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Sistem Admin <span class="glyphicon glyphicon-menu-right"></span> User <span class="glyphicon glyphicon-menu-right"></span> Tambah User';
+		return view('user.create', compact('tree'));
 	}
 
 	function store(Request $request){

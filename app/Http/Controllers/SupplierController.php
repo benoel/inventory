@@ -15,11 +15,13 @@ class SupplierController extends Controller
 
 	function view(){
 		$datasupplier = Supplier::all();
-		return view('supplier.view', compact('datasupplier'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Supplier';
+		return view('supplier.view', compact('datasupplier', 'tree'));
 	}
 
 	function create(){
-		return view('supplier.create');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Supplier <span class="glyphicon glyphicon-menu-right"></span> Buat Barang';
+		return view('supplier.create', compact('tree'));
 	}
 
 	function store(Request $request){
@@ -34,6 +36,7 @@ class SupplierController extends Controller
 
 	function edit($id){
 		$datasupplier = Supplier::find($id);
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Supplier <span class="glyphicon glyphicon-menu-right"></span> Edit Supplier';
 		return view('supplier.edit', compact('datasupplier'));
 	}
 

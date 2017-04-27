@@ -24,7 +24,7 @@
 				<input value="{{ $dataoutlet->telp }}" name="telp" type="text" class="form-control" id="3" placeholder="Telp">
 			</div>
 			<br>
-			<button type="submit" class="btn btn-primary">SIMPAN</button>
+			<button type="submit" class="btn roman white-txt">SIMPAN</button>
 		</form>
 	</div>
 </div>

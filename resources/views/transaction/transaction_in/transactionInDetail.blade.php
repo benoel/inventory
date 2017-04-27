@@ -34,7 +34,7 @@
 			</table>
 		</div>
 	</div>
-	<div style="background-color: #C9C9C9;" class="col-md-4">
+	<div class="card col-md-4">
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="">No : {{ $datadetail->number }}</h3>

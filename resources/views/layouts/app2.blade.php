@@ -12,8 +12,8 @@
     <title>Inventory - Aplikasi inventory barang</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
@@ -25,16 +25,35 @@
             ]) !!};
         </script>
     </head>
-    <body>
-        <header style="margin-bottom: 30px;">
-            
-        </header>
-        @yield('content')
-        <!-- Scripts -->
-        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-    </body>
-    </html>
     <style>
+        @font-face {
+            font-family: ubuntu;
+            src: url({{ asset('font/Ubuntu/Ubuntu-Regular.ttf') }});
+        }
+        body{
+            background-image: url({{ asset('images/Sativa.jpg') }});
+            /*background-color: #F2F2F0;*/
+            color: #737371;
+            font-family: ubuntu;
+        }
+        h1, h2, h3, h4, h5{
+            color: #737371;
+            margin: 0;
+        }
+        a{
+            color: #737371;
+        }
+        a:hover{
+            color: #737371;
+        }
+        header{
+            margin-bottom: 20px;
+            border-bottom: 4px solid #DE6262;
+            padding: 15px 0; 
+        }
+        header h1{
+            margin: 0;
+        }
         .container-fluid{
             padding-left: 330px;
         }
@@ -44,4 +63,32 @@
             width: 300px;
             border-right: 1px solid #555;
         }
+        .footer{
+            position: absolute;
+            bottom: 0;
+        }
     </style>
+    <body>
+        <header class="tautara">
+            <h1 class="seashell-txt center"><a href="{{ url('login') }}">Inventory</a></h1>
+        </header>
+        @yield('content')
+        @include('elements.footer')
+        <!-- Scripts -->
+        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

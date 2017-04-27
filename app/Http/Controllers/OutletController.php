@@ -15,11 +15,13 @@ class OutletController extends Controller
 
 	function view(){
 		$dataoutlet = Outlet::all();
-		return view('outlet.view', compact('dataoutlet'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Outlet';
+		return view('outlet.view', compact('dataoutlet', 'tree'));
 	}
 
 	function create(){
-		return view('outlet.create');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Outlet <span class="glyphicon glyphicon-menu-right"></span> Buat Outlet';
+		return view('outlet.create', compact('tree'));
 	}
 
 	function store(Request $request){
@@ -34,7 +36,8 @@ class OutletController extends Controller
 
 	function edit($id){
 		$dataoutlet = Outlet::find($id);
-		return view('outlet.edit', compact('dataoutlet'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Outlet <span class="glyphicon glyphicon-menu-right"></span> Edit Outlet';
+		return view('outlet.edit', compact('dataoutlet', 'tree'));
 	}
 
 	function update(Request $request, $id){

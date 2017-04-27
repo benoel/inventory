@@ -36,7 +36,7 @@
 				@endforeach
 			</select>
 			<br>
-			<button type="submit" class="btn btn-primary">SIMPAN</button>
+			<button type="submit" class="btn btn-default roman white-txt">SIMPAN</button>
 		</form>
 	</div>
 </div>

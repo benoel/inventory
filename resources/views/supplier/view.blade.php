@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ url('supplier/create') }}" class="btn btn-default">Tambah Supplier</a>
+<a href="{{ url('supplier/create') }}" class="btn roman white-txt">Tambah Supplier</a>
 
 <table id="inventoryTable" class="display">
 	<thead>
@@ -22,8 +22,8 @@
 			<td>{{ $data->addres }}</td>
 			<td>{{ $data->telp }}</td>
 			<td>
-				<a class="mycolor" href="{{ url('supplier/'. $data->id .'/edit') }}">Edit</a> || 
-				<a class="mycolor" href="{{ url('supplier/'. $data->id .'/delete') }}">Delete</a>
+				<a class="roman-txt" href="{{ url('supplier/'. $data->id .'/edit') }}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> || 
+				<a class="roman-txt" href="{{ url('supplier/'. $data->id .'/delete') }}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
 			</td>
 		</tr>
 		@endforeach

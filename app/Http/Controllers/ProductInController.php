@@ -44,8 +44,9 @@ class ProductInController extends Controller
 
 	function create(){
 		$datasupplier = Supplier::all(); 
-		$nomor = $this->transaksi_id(); 
-		return view('transaction.transaction_in.transactionin', compact('datasupplier', 'nomor'));
+		$nomor = $this->transaksi_id();
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Buat Transaksi Masuk';
+		return view('transaction.transaction_in.transactionin', compact('datasupplier', 'nomor', 'tree'));
 	}
 
 	function store(Request $request){
@@ -59,7 +60,8 @@ class ProductInController extends Controller
 
 	function view(){
 		$data = ProductIn::all();
-		return view('transaction.transaction_in.view', compact('data'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Transaksi <span class="glyphicon glyphicon-menu-right"></span> Transaksi Masuk';
+		return view('transaction.transaction_in.view', compact('data', 'tree'));
 	}
 
 	function previewtransaksi($number){
@@ -83,8 +85,16 @@ class ProductInController extends Controller
 			$to = $request->to;
 		}
 		// dd($datareport);
-		return view('report.result.resultin', compact('datareport', 'from', 'to'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Laporan <span class="glyphicon glyphicon-menu-right"></span> Barang Masuk <span class="glyphicon glyphicon-menu-right"></span> Result ';
+		return view('report.result.resultin', compact('datareport', 'from', 'to', 'tree'));
 	}
+
+	function delete($number){
+		ProductIn::where('number', $number)->delete();
+		ProductInDetail::where('number', $number)->delete();
+		return redirect ('barangmasuk');
+	}
+
 }
 
 

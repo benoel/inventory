@@ -15,11 +15,13 @@ class CategoryController extends Controller
 
 	function view(){
 		$datacategory = Category::all();
-		return view('category.view', compact('datacategory'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Category';
+		return view('category.view', compact('datacategory', 'tree'));
 	}
 
 	function create(){
-		return view('category.create');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Category <span class="glyphicon glyphicon-menu-right"></span> Buat Category';
+		return view('category.create', compact('tree'));
 	}
 
 	function store(Request $request){
@@ -30,8 +32,9 @@ class CategoryController extends Controller
 	}
 
 	function edit($id){
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Category <span class="glyphicon glyphicon-menu-right"></span> Edit Category';
 		$datacategory = Category::find($id);
-		return view('category.edit', compact('datacategory'));
+		return view('category.edit', compact('datacategory', 'tree'));
 	}
 
 	function update(Request $request, $id){

@@ -38,126 +38,100 @@
     <script src="{{ asset('js/angular-1-2-32.min.js') }}"></script>
     <script src="{{ asset('js/angular/app.js') }}"></script>
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-            ]) !!};
-        </script>
-    </head>
-    <body>
-        <div id="app">
-            <nav class="navbar navbar-default navbar-static-top">
-                <div class="container">
-                    <div class="navbar-header">
-
-                        <!-- Collapsed Hamburger -->
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            Inventory
-                        </a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="nav navbar-nav">
-                            &nbsp;
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
-                            <!-- Authentication Links -->
-                            @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
-                            @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
+    <style>
+        @font-face {
+            font-family: ubuntu;
+            src: url({{ asset('font/Ubuntu/Ubuntu-Regular.ttf') }});
+        }
+        body{
+            background-image: url({{ asset('images/Sativa.jpg') }});
+            color: #737371;
+            font-family: ubuntu;
+        }
+        h1, h2, h3, h4, h5{
+            color: #737371;
+            margin: 0;
+        }
+        a{
+            color: #737371;
+        }
+        a:hover{
+            color: #737371;
+        }
+        header{
+            z-index: 100;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #DE6262;
+            height: 64px;
+            position: fixed;
+            width: 100%;
+        }
+        header h1{
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        header h1 a:hover,
+        header h1 a:focus,
+        header h1 a:active{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+ @include ('elements.header')
+ <div class="wrapper">
+    @include ('elements.sidebar')
+    <div class="container-fluid">
+        <div class="tree">
+            @if (isset($tree))
+            <span class="glyphicon glyphicon-menu-left roman-txt"></span> <a href="#" id="kembali" class="roman-txt">Kembali</a>
+            @endif
+            <div class="right">
+                <span class="glyphicon glyphicon-home"></span>
+                @if (isset($tree))
+                {!! $tree !!}
+                @endif
             </div>
-        </nav>
-    </div>
-    <div class="wrapper">
-        <div class="sidebar">
-            <ul>
-                <li>
-                    Master
-                    <ul>
-                        <li><a href="{{ url('barang') }}">Barang</a></li>
-                        <li><a href="{{ url('supplier') }}">Supplier</a></li>
-                        <li><a href="{{ url('outlet') }}">Outlet</a></li>
-                        <li><a href="{{ url('kategori') }}">Category</a></li>
-                        <li><a href="{{ url('unit') }}">Unit</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Transaksi
-                    <ul>
-                        <li><a href="{{ url('barangmasuk') }}">Barang Masuk</a></li>
-                        <li><a href="{{ url('barangkeluar') }}">Barang Keluar</a></li>
-                        <li><a href="{{ url('barangrusak') }}">Barang Rusak/Retur</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Laporan
-                    <ul>
-                        <li><a href="{{ url('reportbarangmasuk') }}">Lap. Barang Masuk</a></li>
-                        <li><a href="{{ url('reportbarangkeluar') }}">Lap. Barang Keluar</a></li>
-                        <li><a href="{{ url('reportbarangrusak') }}">Lap. Barang Rusak</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Admin System
-                    <ul>
-                        <li><a href="{{ url('user') }}">Management User</a></li>
-                        <li><a href="{{ url('user/password') }}">Ganti Password</a></li>
-                        <li><a href="{{ url('logout') }}">Keluar</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
-        <div class="container-fluid">
+        <div class="container-app" style="padding: 15px;">
             @yield('content')
         </div>
+        @include('elements.footer')
     </div>
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+</div>
+<!-- Scripts -->
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>
 </html>
 <style>
-    .container-fluid{
-        padding-left: 330px;
+    .container-app{
+        min-height: calc(100vh - 159px);
     }
-    .sidebar{
-        position: fixed;
-        height: 100%;
-        width: 300px;
-        border-right: 1px solid #555;
+    .container-fluid{
+        /*position: relative;*/
+        /*z-index: -100;*/
+        padding-left: 300px;
+        padding-right: 0;
+        padding-top: 0px;
     }
 </style>
+<script>
+    $(document).ready(function(){
+        $('.parent-menu').click(function(){
+            var a = $(this).find('.icon').hasClass('active');
+            if (a == true) {
+                $(this).find('.child-menu').removeClass('show');
+                $(this).find('.icon').removeClass('active');
+            }else{
+                $(this).find('.child-menu').addClass('show');
+                $(this).find('.icon').addClass('active');
+            }
+
+        })
+
+
+
+
+    })
+</script>

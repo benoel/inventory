@@ -15,11 +15,13 @@ class UnitController extends Controller
 
 	function view(){
 		$dataunit = Unit::all();
-		return view('unit.view', compact('dataunit'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Unit';
+		return view('unit.view', compact('dataunit', 'tree'));
 	}
 
 	function create(){
-		return view('unit.create');
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Unit <span class="glyphicon glyphicon-menu-right"></span> Buat Unit';
+		return view('unit.create', 'tree');
 	}
 
 	function store(Request $request){
@@ -31,7 +33,8 @@ class UnitController extends Controller
 
 	function edit($id){
 		$dataunit = Unit::find($id);
-		return view('unit.edit', compact('dataunit'));
+		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Unit <span class="glyphicon glyphicon-menu-right"></span> Edit Unit';
+		return view('unit.edit', compact('dataunit', 'tree'));
 	}
 
 	function update(Request $request, $id){
