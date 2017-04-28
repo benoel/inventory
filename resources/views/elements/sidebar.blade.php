@@ -120,10 +120,14 @@
     }
     .child-menu{
         padding-left: 15px;
-        display: none;
+        max-height: 0px;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
     }
     .child-menu.show{
-        display: block;
+        opacity: 1;
+        max-height: 300px;
     }
     .child-menu li{
         /*padding: 8px 8px 8px 75px;*/
@@ -150,3 +154,34 @@
         overflow-y: scroll;
     }
 </style>
+<script>
+    $(document).ready(function(){
+        $('.parent-menu').click(function(){
+            var a = $(this).find('.icon').hasClass('active');
+            var b = $('.parent-menu').find('.icon').hasClass('active');
+            // if (a == true) {
+            //     $(this).find('.child-menu').removeClass('show');
+            //     $(this).find('.icon').removeClass('active');
+            // }
+            // else{
+            //     $(this).find('.child-menu').addClass('show');
+            //     $(this).find('.icon').addClass('active');
+            // }
+            if (b == true) {
+                $('.parent-menu').find('.icon').removeClass('active');
+                $('.parent-menu').find('.child-menu').removeClass('show');
+                $(this).find('.child-menu').addClass('show');
+                $(this).find('.icon').addClass('active');
+            }else{
+                $(this).find('.child-menu').addClass('show');
+                $(this).find('.icon').addClass('active');
+            }
+            if (a == true) {
+                $(this).find('.child-menu').removeClass('show');
+                $(this).find('.icon').removeClass('active');
+            }
+
+        })
+
+    })
+</script>

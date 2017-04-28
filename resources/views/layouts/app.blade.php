@@ -79,8 +79,8 @@
     </style>
 </head>
 <body>
- @include ('elements.header')
- <div class="wrapper">
+   @include ('elements.header')
+   <div class="wrapper">
     @include ('elements.sidebar')
     <div class="container-fluid">
         <div class="tree">
@@ -116,22 +116,3 @@
         padding-top: 0px;
     }
 </style>
-<script>
-    $(document).ready(function(){
-        $('.parent-menu').click(function(){
-            var a = $(this).find('.icon').hasClass('active');
-            if (a == true) {
-                $(this).find('.child-menu').removeClass('show');
-                $(this).find('.icon').removeClass('active');
-            }else{
-                $(this).find('.child-menu').addClass('show');
-                $(this).find('.icon').addClass('active');
-            }
-
-        })
-
-
-
-
-    })
-</script>
