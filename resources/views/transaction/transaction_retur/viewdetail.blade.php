@@ -1,7 +1,7 @@
 @extends('layouts.blank')
 
 @section('content')
-<h1 class="text-center">Detail Keluar Barang</h1>
+<h1 class="text-center">Detail Barang Rusak</h1>
 @foreach ($datadetail as $dtdetail)
 <div class="invoice-box">
 	<table cellpadding="0" cellspacing="0">
@@ -14,7 +14,7 @@
 						</td>
 
 						<td>
-							Nomor Keluar #: {{ $purchasenumber }}<br>
+							Nomor Transaksi #: {{ $purchasenumber }}<br>
 							Created: {{ $dtdetail->created_at }}<br>
 						</td>
 					</tr>

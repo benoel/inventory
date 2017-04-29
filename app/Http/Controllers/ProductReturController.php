@@ -95,4 +95,10 @@ class ProductReturController extends Controller
 		// dd($datareport);
 		return view('report.result.resultcrash', compact('datareport', 'from', 'to'));
 	}
+
+	function delete($number){
+		ProductRetur::where('number', $number)->delete();
+		ProductReturDetail::where('number', $number)->delete();
+		return redirect ('barangrusak');
+	}
 }

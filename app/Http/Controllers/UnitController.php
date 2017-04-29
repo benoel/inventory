@@ -21,7 +21,7 @@ class UnitController extends Controller
 
 	function create(){
 		$tree = '<span class="glyphicon glyphicon-menu-right"></span> Master <span class="glyphicon glyphicon-menu-right"></span> Unit <span class="glyphicon glyphicon-menu-right"></span> Buat Unit';
-		return view('unit.create', 'tree');
+		return view('unit.create', compact('tree'));
 	}
 
 	function store(Request $request){

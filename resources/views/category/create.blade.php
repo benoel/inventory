@@ -11,7 +11,7 @@
 				<input name="name" type="text" class="form-control" id="1" placeholder="Nama Kategori">
 			</div>
 			<br>
-			<button type="submit" class="btn btn-primary">SIMPAN</button>
+			<button type="submit" class="btn roman white-txt">SIMPAN</button>
 		</form>
 	</div>
 </div>

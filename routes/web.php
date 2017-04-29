@@ -95,6 +95,7 @@ Route::get('/barangrusak/create', 'ProductReturController@create');
 Route::post('/barangrusak', 'ProductReturController@store');
 //barang rusak detail
 Route::get('/transaksi-retur/{number}', 'ProductReturDetailController@create');
+Route::get('/transaksi-retur/{number}/delete', 'ProductReturController@delete');
 Route::get('/transaksirusak/{number}', 'ProductReturDetailController@getdata');
 Route::post('/transaksirusak/add', 'ProductReturDetailController@add');
 Route::get('/transaksirusak/{id}/delete', 'ProductReturDetailController@delete');
@@ -105,6 +106,7 @@ Route::get('/transaksirusak/{number}/simpan', 'ProductReturDetailController@simp
 // untuk print
 Route::get('/printtransaksikeluar/{number}', 'ProductOutController@previewtransaksi');
 Route::get('/printtransaksimasuk/{number}', 'ProductInController@previewtransaksi');
+Route::get('/printtransaksiretur/{number}', 'ProductReturController@previewtransaksi');
 // untuk print
 
 

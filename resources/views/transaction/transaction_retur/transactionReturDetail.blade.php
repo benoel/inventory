@@ -131,7 +131,7 @@
 		});
 
 		function popup_print(){
-			window.open('{{ url("printtransaksikeluar") }}/{{ $datadetail->number }}','page','toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=0,width=750,height=600,left=50,top=50,titlebar=yes')
+			window.open('{{ url("printtransaksiretur") }}/{{ $datadetail->number }}','page','toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=0,width=750,height=600,left=50,top=50,titlebar=yes')
 		}
 	})
 </script>
